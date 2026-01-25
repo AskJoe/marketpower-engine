@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: flowise
+    runtime: docker
+    plan: starter
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: DATABASE_PATH
+        value: /data/.flowise
+      - key: SECRETKEY_PATH
+        value: /data/.flowise
+      - key: LOG_PATH
+        value: /data/.flowise/logs
+      - key: BLOB_STORAGE_PATH
+        value: /data/.flowise/storage
+      - key: JWT_AUTH_TOKEN_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_TOKEN_SECRET
+        generateValue: true
+      - key: JWT_ISSUER
+        value: flowise
+      - key: JWT_AUDIENCE
+        value: flowise-users
+      - key: JWT_TOKEN_EXPIRY_IN_MINUTES
+        value: 360
+      - key: JWT_REFRESH_TOKEN_EXPIRY_IN_MINUTES
+        value: 43200
+    disk:
+      name: flowise-data
+      mountPath: /data
+      sizeGB: 1
