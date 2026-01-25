@@ -27,6 +27,8 @@ services:
         value: 360
       - key: JWT_REFRESH_TOKEN_EXPIRY_IN_MINUTES
         value: 43200
+      - key: MODEL_LIST_CONFIG_JSON
+        value: https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json
     disk:
       name: flowise-data
       mountPath: /data
