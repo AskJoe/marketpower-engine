@@ -106,7 +106,17 @@ const ChatbotFull = () => {
                             chatflowid={chatflow.id}
                             apiHost={baseURL}
                             chatflowConfig={chatbotOverrideConfig}
-                            theme={{ chatWindow: chatbotTheme }}
+                            theme={{
+                                chatWindow: {
+                                    ...chatbotTheme,
+                                    footer: {
+                                        textColor: '#303235',
+                                        text: 'Powered by',
+                                        company: 'MarketPower.ai',
+                                        companyLink: 'https://marketpower.ai'
+                                    }
+                                }
+                            }}
                         />
                     )}
                 </>

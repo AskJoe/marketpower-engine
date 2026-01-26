@@ -199,9 +199,8 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
             }
         } catch (error) {
             enqueueSnackbar({
-                message: `Failed to save Chatbot Configuration: ${
-                    typeof error.response.data === 'object' ? error.response.data.message : error.response.data
-                }`,
+                message: `Failed to save Chatbot Configuration: ${typeof error.response.data === 'object' ? error.response.data.message : error.response.data
+                    }`,
                 options: {
                     key: new Date().getTime() + Math.random(),
                     variant: 'error',
@@ -236,9 +235,8 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
             }
         } catch (error) {
             enqueueSnackbar({
-                message: `Failed to save Chatbot Configuration: ${
-                    typeof error.response.data === 'object' ? error.response.data.message : error.response.data
-                }`,
+                message: `Failed to save Chatbot Configuration: ${typeof error.response.data === 'object' ? error.response.data.message : error.response.data
+                    }`,
                 options: {
                     key: new Date().getTime() + Math.random(),
                     variant: 'error',
@@ -467,13 +465,13 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
                 <Stack sx={{ mt: 1, mb: 2, alignItems: 'center' }} direction='row' spacing={2}>
                     <Typography variant='h4'>Title Settings</Typography>
                 </Stack>
-                {textField(title, 'title', 'Title', 'string', 'Flowise Assistant')}
+                {textField(title, 'title', 'Title', 'string', 'MarketPower Assistant')}
                 {textField(
                     titleAvatarSrc,
                     'titleAvatarSrc',
                     'Title Avatar Link',
                     'string',
-                    `https://raw.githubusercontent.com/FlowiseAI/Flowise/main/assets/FloWiseAI_dark.png`
+                    `https://marketpower.ai/logo.png`
                 )}
                 {colorField(titleBackgroundColor, 'titleBackgroundColor', 'Title Background Color')}
                 {colorField(titleTextColor, 'titleTextColor', 'Title TextColor')}
