@@ -109,9 +109,9 @@ export const defaultThemeConfig = {
     },
     disclaimer: {
         title: 'Disclaimer',
-        message: 'By using this chatbot, you agree to the <a target="_blank" href="https://flowiseai.com/terms">Terms & Condition</a>',
+        message: 'By using this chatbot, you agree to the <a target="_blank" href="https://marketpower.ai/terms">Terms & Condition</a>',
         textColor: 'black',
-        buttonColor: '#3b82f6',
+        buttonColor: '#8B5CF6',
         buttonText: 'Start Chatting',
         buttonTextColor: 'white',
         blurredBackgroundColor: 'rgba(0, 0, 0, 0.4)',
@@ -121,7 +121,7 @@ export const defaultThemeConfig = {
     chatWindow: {
         showTitle: true,
         showAgentMessages: true,
-        title: 'Flowise Bot',
+        title: 'MarketPower Bot',
         titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
         welcomeMessage: 'Hello! This is custom welcome message',
         errorMessage: 'This is a custom error message',
@@ -170,8 +170,8 @@ export const defaultThemeConfig = {
         footer: {
             textColor: '#303235',
             text: 'Powered by',
-            company: 'Flowise',
-            companyLink: 'https://flowiseai.com'
+            company: 'MarketPower.ai',
+            companyLink: 'https://marketpower.ai'
         }
     }
 }
@@ -223,10 +223,10 @@ const App = () => {
                 /* Observers Config */
             }}
             theme={{${customStringify(defaultThemeConfig)
-                .substring(1)
-                .split('\n')
-                .map((line) => ' '.repeat(4) + line)
-                .join('\n')}
+            .substring(1)
+            .split('\n')
+            .map((line) => ' '.repeat(4) + line)
+            .join('\n')}
         />
     )
 }`
@@ -276,10 +276,10 @@ const App = () => {
                 /* Observers Config */
             }}
             theme={{${customStringify(getFullPageThemeConfig())
-                .substring(1)
-                .split('\n')
-                .map((line) => ' '.repeat(4) + line)
-                .join('\n')}
+            .substring(1)
+            .split('\n')
+            .map((line) => ' '.repeat(4) + line)
+            .join('\n')}
         />
     )
 }`
