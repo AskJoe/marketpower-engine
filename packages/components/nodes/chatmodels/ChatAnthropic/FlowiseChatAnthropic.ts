@@ -34,4 +34,23 @@ export class ChatAnthropic extends LangchainChatAnthropic implements IVisionChat
             this.maxTokens = this.configuredMaxToken ? this.configuredMaxToken : DEFAULT_IMAGE_MAX_TOKEN
         }
     }
+
+    /**
+     * Override invocationParams to filter out LangChain's default sentinel values (-1)
+     * for top_p and top_k. LangChain uses -1 as a sentinel to indicate "not set",
+     * but if we don't filter these out, they get sent to Claude's API which rejects them.
+     */
+    invocationParams(options?: this['ParsedCallOptions']) {
+        const params = super.invocationParams(options)
+
+        // Remove top_p and top_k if they are -1 (LangChain's sentinel for "not set")
+        if (params.top_p === -1) {
+            delete params.top_p
+        }
+        if (params.top_k === -1) {
+            delete params.top_k
+        }
+
+        return params
+    }
 }
