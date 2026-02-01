@@ -7,14 +7,39 @@ services:
     envVars:
       - key: PORT
         value: 3000
-      - key: DATABASE_PATH
-        value: /data/.flowise
+      # PostgreSQL Database Configuration
+      - key: DATABASE_TYPE
+        value: postgres
+      - key: DATABASE_HOST
+        fromDatabase:
+          name: flowise-db
+          property: host
+      - key: DATABASE_PORT
+        fromDatabase:
+          name: flowise-db
+          property: port
+      - key: DATABASE_USER
+        fromDatabase:
+          name: flowise-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: flowise-db
+          property: password
+      - key: DATABASE_NAME
+        fromDatabase:
+          name: flowise-db
+          property: database
+      - key: DATABASE_SSL
+        value: "true"
+      # Storage paths (still need disk for file uploads)
       - key: SECRETKEY_PATH
         value: /data/.flowise
       - key: LOG_PATH
         value: /data/.flowise/logs
       - key: BLOB_STORAGE_PATH
         value: /data/.flowise/storage
+      # JWT Configuration
       - key: JWT_AUTH_TOKEN_SECRET
         generateValue: true
       - key: JWT_REFRESH_TOKEN_SECRET
@@ -33,3 +58,9 @@ services:
       name: flowise-data
       mountPath: /data
       sizeGB: 1
+
+databases:
+  - name: flowise-db
+    databaseName: flowise
+    user: flowise
+    plan: starter
