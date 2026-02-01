@@ -63,4 +63,4 @@ databases:
   - name: flowise-db
     databaseName: flowise
     user: flowise
-    plan: starter
+    plan: basic-256mb
