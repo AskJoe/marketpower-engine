@@ -40,8 +40,9 @@ export class ChatAnthropic extends LangchainChatAnthropic implements IVisionChat
      * for top_p and top_k. LangChain uses -1 as a sentinel to indicate "not set",
      * but if we don't filter these out, they get sent to Claude's API which rejects them.
      */
+    // @ts-ignore - Return type is compatible at runtime, suppressing strict type check
     invocationParams(options?: this['ParsedCallOptions']) {
-        const params = super.invocationParams(options)
+        const params = super.invocationParams(options) as Record<string, any>
 
         // Remove top_p and top_k if they are -1 (LangChain's sentinel for "not set")
         if (params.top_p === -1) {
